@@ -1,12 +1,13 @@
-import React from "react";
+import React, { memo } from "react";
 
 import HeaderBottom from "./HeaderBottom";
 import HeaderMainLinks from "./HeaderMainLinks";
 import HeaderMainSearch from "./HeaderMainSearch";
 import HeaderMainTitle from "./HeaderMainTitle";
 import HeaderDescription from "./HeaderDescription";
+import HeaderMainActionMenu from "./HeaderMainActionMenu";
 import "./header.scss";
-const Header = () => {
+const Header = memo(() => {
 	return (
 		<>
 			<div className="section section-header">
@@ -15,6 +16,7 @@ const Header = () => {
 						<HeaderDescription />
 						<div className="header-main">
 							<HeaderMainTitle />
+							<HeaderMainActionMenu />
 							<HeaderMainSearch />
 							<HeaderMainLinks />
 						</div>
@@ -24,6 +26,6 @@ const Header = () => {
 			<HeaderBottom />
 		</>
 	);
-};
+});
 
 export default Header;
