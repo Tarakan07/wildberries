@@ -22,6 +22,9 @@ body {
   button{
     background-color: transparent;
   }
+  &:has(.section-header.active){
+    overflow-y: hidden;
+  }
 }
 .section{
   padding: 0 35px;

@@ -2,6 +2,19 @@
   padding-top: 8px;
   padding-bottom: 16px;
   background: linear-gradient(to right,#cb11ab 0,#481173 100%) no-repeat;
+  &.active{
+   &:after{
+    content: "";
+  
+    background-color: rgba(0,0,0,.4);
+    width: 100vw;
+    z-index: 888;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 100%;
+   }
+  }
 }
 .header{
   display: flex;
@@ -82,7 +95,7 @@
       margin-bottom: 0;
      &:nth-of-type(1){
       transform: rotate(45deg);
-      top: 3px;
+      top: 3.5px;
      }
      &:nth-of-type(2){
       left:-100%;

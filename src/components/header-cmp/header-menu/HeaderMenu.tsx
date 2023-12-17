@@ -1,7 +1,10 @@
 import Link from "next/link";
 import React from "react";
 import "./headerMenu.scss";
-
+type TProps = {
+	showMenu: boolean;
+	heightMenu: number;
+};
 const dataMenu = [
 	{ id: 1, title: "Женщинам" },
 	{ id: 2, title: "Обувь" },
@@ -27,9 +30,13 @@ const dataMenu = [
 	{ id: 22, title: "Канцтовары" },
 	{ id: 23, title: "Акции" },
 ];
-const HeaderMenu = ({ showMenu }: { showMenu: boolean }) => {
+const HeaderMenu = ({ showMenu, heightMenu }: TProps) => {
+	console.log(heightMenu);
 	return (
-		<div className={`wrap-menu ${showMenu && "active"}`}>
+		<div
+			className={`wrap-menu with_scrollbar ${showMenu && "active"}`}
+			style={{ height: heightMenu }}
+		>
 			<div className="box-menu">
 				<ul>
 					{dataMenu.map((itemMenu) => {
