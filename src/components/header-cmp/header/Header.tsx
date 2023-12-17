@@ -7,7 +7,7 @@ import HeaderMainSearch from "./HeaderMainSearch";
 import HeaderMainTitle from "./HeaderMainTitle";
 import HeaderDescription from "./HeaderDescription";
 import HeaderMainActionMenu from "./HeaderMainActionMenu";
-import HeaderMenu from "./header-menu/HeaderMenu";
+import HeaderMenu from "../header-menu/HeaderMenu";
 import "./header.scss";
 const Header = memo(() => {
 	const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -28,7 +28,7 @@ const Header = memo(() => {
 	useEffect(() => {
 		const handleMenu = (e: MouseEvent) => {
 			const target = e.target as HTMLElement;
-			console.log(target);
+
 			if (
 				!target.closest(".wrap-menu") &&
 				!target.closest(".header-main__action_menu")
@@ -37,7 +37,6 @@ const Header = memo(() => {
 		};
 
 		if (showMenu) {
-			console.log(showMenu);
 			window.addEventListener("click", handleMenu);
 		}
 		return () => {
