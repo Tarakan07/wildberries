@@ -31,7 +31,6 @@ const dataMenu = [
 	{ id: 23, title: "Акции" },
 ];
 const HeaderMenu = ({ showMenu, heightMenu }: TProps) => {
-	console.log(heightMenu);
 	return (
 		<div
 			className={`wrap-menu with_scrollbar ${showMenu && "active"}`}

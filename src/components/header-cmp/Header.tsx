@@ -1,5 +1,5 @@
 "use client";
-import React, { memo, useEffect, useRef, useState } from "react";
+import React, { memo, useCallback, useEffect, useRef, useState } from "react";
 
 import HeaderBottom from "./HeaderBottom";
 import HeaderMainLinks from "./HeaderMainLinks";
@@ -12,9 +12,9 @@ import "./header.scss";
 const Header = memo(() => {
 	const [showMenu, setShowMenu] = useState<boolean>(false);
 	const [heightMenu, setHeightMenu] = useState<number>(0);
-	const toggleMenu = () => {
+	const toggleMenu = useCallback(() => {
 		setShowMenu((prev) => !prev);
-	};
+	}, []);
 
 	const headerBlock = useRef<HTMLDivElement>(null);
 
@@ -25,7 +25,25 @@ const Header = memo(() => {
 			);
 		}
 	}, []);
+	useEffect(() => {
+		const handleMenu = (e: MouseEvent) => {
+			const target = e.target as HTMLElement;
+			console.log(target);
+			if (
+				!target.closest(".wrap-menu") &&
+				!target.closest(".header-main__action_menu")
+			)
+				toggleMenu();
+		};
 
+		if (showMenu) {
+			console.log(showMenu);
+			window.addEventListener("click", handleMenu);
+		}
+		return () => {
+			window.removeEventListener("click", handleMenu);
+		};
+	}, [showMenu]);
 	return (
 		<>
 			<div

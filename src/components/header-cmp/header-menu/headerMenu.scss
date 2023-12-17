@@ -16,7 +16,7 @@
     background-color: blue;
 }
 &::-webkit-scrollbar-thumb {
-  background-color: #f1f1f5;
+  background-color: #dfdfe1;
   border-radius: 10px;
   &:hover{
     background-color: #d3d4dd;
@@ -28,7 +28,7 @@
 
 }
 &::-webkit-scrollbar {
-  width: 5px;
+  width: 7px;
 
   background-color: blue;
 }
